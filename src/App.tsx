@@ -1,11 +1,9 @@
-import PortfolioButton from "../components/PortfolioButton";
-import VideoContainer from "../components/VideoContainer.tsx";
+import VideoContainersStack from "../components/LandingPage/Script/VideoContainersStack.tsx";
 
 function App() {
   return (
     <div>
-      <PortfolioButton />
-      <VideoContainer />
+      <VideoContainersStack />
     </div>
   );
 }

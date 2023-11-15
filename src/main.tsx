@@ -1,11 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-// import "../components/PortfolioButton.tsx";
-import "../components/PortfolioButton.css";
 
-// import "../components/VideoContainer.tsx";
-import "../components/VideoContainer.css";
+import "../components/LandingPage/Styles/VideoContainersStack.css";
 
 import "./App.css";
 
