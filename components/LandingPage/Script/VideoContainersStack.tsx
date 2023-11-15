@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import video_forward from "../../../src/assets/video_forward.mp4";
 import video_reverse from "../../../src/assets/video_reverse.mp4";
 import video_zoom from "../../../src/assets/video_zoom.mp4";
@@ -33,6 +33,7 @@ export default function VideoContainersStack() {
 
   return (
     <>
+      <div className="page_fade_in"></div>
       <button
         onClick={() => console.log("click")}
         onMouseEnter={() => {
