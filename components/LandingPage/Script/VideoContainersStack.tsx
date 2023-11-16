@@ -3,6 +3,10 @@ import video_forward from "../../../src/assets/video_forward.mp4";
 import video_reverse from "../../../src/assets/video_reverse.mp4";
 import video_zoom from "../../../src/assets/video_zoom.mp4";
 
+let portfolio_button_clicked = false;
+let animation_finished = false;
+let check_video_forward_time = false;
+
 export default function VideoContainersStack() {
   const video_forward_ref = useRef<HTMLVideoElement>(null);
   const video_reverse_ref = useRef<HTMLVideoElement>(null);
@@ -21,28 +25,43 @@ export default function VideoContainersStack() {
     }
   };
 
-  const handleMouseEnter = (videoRef: React.RefObject<HTMLVideoElement>) => {
-    IndexChange(true);
-    playVideo(videoRef);
-  };
+  function getCurrentTime(video: React.RefObject<HTMLVideoElement>) {
+    if (video.current && check_video_forward_time && !animation_finished) {
+      const currentTime = video.current.currentTime;
+      if (currentTime === video.current.duration) {
+        animation_finished = true;
+        playVideo(video_zoom_ref);
+        IndexPriority();
+      }
+    }
 
-  const handleMouseLeave = (videoRef: React.RefObject<HTMLVideoElement>) => {
-    IndexChange(false);
-    playVideo(videoRef);
-  };
+    return 0;
+  }
 
   return (
     <>
       <div className="page_fade_in"></div>
       <button
-        onClick={() => console.log("click")}
+        onClick={() => {
+          portfolio_button_clicked = true;
+          setInterval(() => {
+            getCurrentTime(video_forward_ref);
+          }, 100);
+        }}
         onMouseEnter={() => {
-          handleMouseEnter(video_forward_ref);
-          pauseVideo(video_reverse_ref);
+          check_video_forward_time = true;
+          if (!portfolio_button_clicked) {
+            IndexChange(true);
+            playVideo(video_forward_ref);
+            pauseVideo(video_reverse_ref);
+          }
         }}
         onMouseLeave={() => {
-          handleMouseLeave(video_reverse_ref);
-          pauseVideo(video_forward_ref);
+          if (!portfolio_button_clicked) {
+            IndexChange(false);
+            playVideo(video_reverse_ref);
+            pauseVideo(video_forward_ref);
+          }
         }}
         className="portfolio_button"
       >
@@ -80,5 +99,17 @@ function IndexChange(mouse_state: boolean) {
       video_reverse.style.zIndex = "4";
       video_forward.style.zIndex = "1";
     }
+  }
+}
+
+function IndexPriority() {
+  const video_forward = document.getElementById("video_forward");
+  const video_reverse = document.getElementById("video_reverse");
+  const video_zoom = document.getElementById("video_zoom");
+
+  if (video_forward !== null && video_reverse !== null && video_zoom !== null) {
+    video_forward.style.zIndex = "1";
+    video_reverse.style.zIndex = "1";
+    video_zoom.style.zIndex = "3";
   }
 }
