@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import video_forward from "../../../src/assets/video_forward.mp4";
 import video_reverse from "../../../src/assets/video_reverse.mp4";
 import video_zoom from "../../../src/assets/video_zoom.mp4";
@@ -11,6 +11,8 @@ export default function VideoContainersStack() {
   const video_forward_ref = useRef<HTMLVideoElement>(null);
   const video_reverse_ref = useRef<HTMLVideoElement>(null);
   const video_zoom_ref = useRef<HTMLVideoElement>(null);
+
+  const [button_text, set_button_text] = useState("Portfolio");
 
   const playVideo = (videoRef: React.RefObject<HTMLVideoElement>) => {
     if (videoRef.current) {
@@ -25,13 +27,15 @@ export default function VideoContainersStack() {
     }
   };
 
-  function getCurrentTime(video: React.RefObject<HTMLVideoElement>) {
+  function onClickAnimation(video: React.RefObject<HTMLVideoElement>) {
     if (video.current && check_video_forward_time && !animation_finished) {
       const currentTime = video.current.currentTime;
       if (currentTime === video.current.duration) {
         animation_finished = true;
         playVideo(video_zoom_ref);
         IndexPriority();
+        PortfolioButtonFadeOut();
+        PageFadeOut();
       }
     }
 
@@ -45,7 +49,7 @@ export default function VideoContainersStack() {
         onClick={() => {
           portfolio_button_clicked = true;
           setInterval(() => {
-            getCurrentTime(video_forward_ref);
+            onClickAnimation(video_forward_ref);
           }, 100);
         }}
         onMouseEnter={() => {
@@ -54,6 +58,7 @@ export default function VideoContainersStack() {
             IndexChange(true);
             playVideo(video_forward_ref);
             pauseVideo(video_reverse_ref);
+            set_button_text("Explore");
           }
         }}
         onMouseLeave={() => {
@@ -61,11 +66,13 @@ export default function VideoContainersStack() {
             IndexChange(false);
             playVideo(video_reverse_ref);
             pauseVideo(video_forward_ref);
+            set_button_text("Portfolio");
           }
         }}
         className="portfolio_button"
+        id="portfolio_button"
       >
-        Portfolio
+        {button_text}
       </button>
 
       <div className="video_containers_stack">
@@ -112,4 +119,20 @@ function IndexPriority() {
     video_reverse.style.zIndex = "1";
     video_zoom.style.zIndex = "3";
   }
+}
+
+function PortfolioButtonFadeOut() {
+  const portfolio_button = document.querySelector(".portfolio_button");
+  if (portfolio_button !== null) {
+    portfolio_button.classList.add("button_fade_out");
+  }
+}
+
+function PageFadeOut() {
+  setTimeout(function () {
+    const page_fade_out = document.querySelector(".page_fade_in");
+    if (page_fade_out !== null) {
+      page_fade_out.classList.add("page_fade_out");
+    }
+  }, 1700);
 }
