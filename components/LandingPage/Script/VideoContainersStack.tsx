@@ -3,14 +3,14 @@ import video_forward from "../../../src/assets/video_forward.mp4";
 import video_reverse from "../../../src/assets/video_reverse.mp4";
 import video_zoom from "../../../src/assets/video_zoom.mp4";
 
-let portfolio_button_clicked = false;
-let animation_finished = false;
-let check_video_forward_time = false;
-
 export default function VideoContainersStack() {
   const video_forward_ref = useRef<HTMLVideoElement>(null);
   const video_reverse_ref = useRef<HTMLVideoElement>(null);
   const video_zoom_ref = useRef<HTMLVideoElement>(null);
+
+  const [portfolio_button_state, set_portfolio_button_state] = useState(false);
+  const [animation_state, set_animation_state] = useState(false);
+  const [video_forward_time, set_video_forward_time] = useState(false);
 
   const [button_text, set_button_text] = useState("Portfolio");
 
@@ -28,10 +28,10 @@ export default function VideoContainersStack() {
   };
 
   function onClickAnimation(video: React.RefObject<HTMLVideoElement>) {
-    if (video.current && check_video_forward_time && !animation_finished) {
+    if (video.current && video_forward_time && !animation_state) {
       const currentTime = video.current.currentTime;
       if (currentTime === video.current.duration) {
-        animation_finished = true;
+        set_animation_state(true);
         playVideo(video_zoom_ref);
         IndexPriority();
         PortfolioButtonFadeOut();
@@ -47,14 +47,14 @@ export default function VideoContainersStack() {
       <div className="page_fade_in"></div>
       <button
         onClick={() => {
-          portfolio_button_clicked = true;
+          set_portfolio_button_state(true);
           setInterval(() => {
             onClickAnimation(video_forward_ref);
           }, 100);
         }}
         onMouseEnter={() => {
-          check_video_forward_time = true;
-          if (!portfolio_button_clicked) {
+          set_video_forward_time(true);
+          if (!portfolio_button_state) {
             IndexChange(true);
             playVideo(video_forward_ref);
             pauseVideo(video_reverse_ref);
@@ -62,7 +62,7 @@ export default function VideoContainersStack() {
           }
         }}
         onMouseLeave={() => {
-          if (!portfolio_button_clicked) {
+          if (!portfolio_button_state) {
             IndexChange(false);
             playVideo(video_reverse_ref);
             pauseVideo(video_forward_ref);
