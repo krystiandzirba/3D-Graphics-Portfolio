@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import video_forward from "../../../src/assets/video_forward.mp4";
 import video_reverse from "../../../src/assets/video_reverse.mp4";
 import video_zoom from "../../../src/assets/video_zoom.mp4";
@@ -8,11 +8,19 @@ export default function VideoContainersStack() {
   const video_reverse_ref = useRef<HTMLVideoElement>(null);
   const video_zoom_ref = useRef<HTMLVideoElement>(null);
 
+  const [portfolio_button_cover_state, set_portfolio_button_cover_state] = useState(true);
   const [portfolio_button_state, set_portfolio_button_state] = useState(false);
   const [animation_state, set_animation_state] = useState(false);
   const [video_forward_time, set_video_forward_time] = useState(false);
-
   const [button_text, set_button_text] = useState("Portfolio");
+
+  useEffect(() => {
+    const portfolio_button_cover_timeout = setTimeout(() => {
+      set_portfolio_button_cover_state(false);
+    }, 1500);
+
+    return () => clearTimeout(portfolio_button_cover_timeout);
+  }, []);
 
   const playVideo = (videoRef: React.RefObject<HTMLVideoElement>) => {
     if (videoRef.current) {
@@ -45,6 +53,7 @@ export default function VideoContainersStack() {
   return (
     <>
       <div className="page_fade_in"></div>
+      {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       <button
         onClick={() => {
           set_portfolio_button_state(true);

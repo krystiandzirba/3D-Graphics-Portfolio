@@ -37,6 +37,16 @@
 
 /* ↓ Portfolio Button ↓ */
 
+.portfolio_button_cover {
+  width: 40%;
+  height: 80%;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
 .portfolio_button {
   position: absolute;
   justify-content: center;
