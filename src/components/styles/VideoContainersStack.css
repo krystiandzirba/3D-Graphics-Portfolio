@@ -48,14 +48,9 @@
 
 /* ↓ Portfolio Button ↓ */
 
-.portfolio_button_cover,
-.portfolio_button,
-.button_fade_out {
-  position: absolute;
-  z-index: 50;
-}
-
 .portfolio_button_cover {
+  z-index: 999;
+  position: absolute;
   width: 40%;
   height: 80%;
   top: 55%;
@@ -81,6 +76,8 @@
 }
 
 .portfolio_button {
+  z-index: 50;
+  position: absolute;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
 }
@@ -91,6 +88,8 @@
 }
 
 .button_fade_out {
+  z-index: 50;
+  position: absolute;
   background-color: rgba(226, 226, 226, 0);
   color: rgba(226, 226, 226, 0);
   transition: background-color 0.8s ease-in-out, scale 1s ease-in-out;

@@ -41,7 +41,6 @@ export default function VideoContainersStack() {
           }, 2300);
           setTimeout(() => {
             set_load_portfolio_content(true);
-            console.log("create");
           }, 2500);
         } else {
           requestAnimationFrame(checkAnimation);
