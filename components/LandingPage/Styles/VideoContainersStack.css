@@ -2,17 +2,17 @@
 
 /* ↓ Page fade-in + fade-out ↓ */
 
-.page_fade_in {
+.page_fade {
   pointer-events: none;
   position: absolute;
   background-color: black;
   width: 100%;
   height: 100%;
-  z-index: 10;
-  animation: page_fade_in 2s ease-in-out forwards;
+  z-index: 100;
+  animation: page_fade_in_black 2s ease-in-out forwards;
 }
 
-@keyframes page_fade_in {
+@keyframes page_fade_in_black {
   from {
     opacity: 1;
   }
@@ -21,16 +21,16 @@
   }
 }
 
-.page_fade_out {
-  animation: page_fade_out 0.5s ease-in-out forwards;
+.page_fade_out_white {
+  animation: page_fade_out_white 0.5s ease-in-out forwards;
 }
 
-@keyframes page_fade_out {
+@keyframes page_fade_out_white {
   from {
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: 0.5;
     background-color: white;
   }
 }
@@ -56,7 +56,7 @@
   top: 44%;
   left: 50%;
   transform: translate(-50%, -0%);
-  z-index: 10;
+  z-index: 50;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   font-family: "Dosis", sans-serif;
@@ -82,9 +82,24 @@
 }
 
 .button_fade_out {
-  border: 0px;
-  color: rgb(226, 226, 226, 0);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 11.25vh;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  z-index: 50;
   background-color: rgb(226, 226, 226, 0);
+  color: rgb(226, 226, 226, 0);
+  font-family: "Dosis", sans-serif;
+  font-size: 3.75vw;
+  border: none;
+  animation: button_show_fade 1.25s ease-in-out 1.25s forwards;
+  /* transition: transform 0.3s ease-in-out; */
+  opacity: 0;
+  padding-bottom: 1.35vh;
   transition: background-color 0.8s ease-in-out, scale 1s ease-in-out;
 }
 
@@ -104,11 +119,21 @@ video {
 }
 
 #video_forward {
-  z-index: 3;
+  z-index: 30;
 }
 #video_reverse {
-  z-index: 2;
+  z-index: 20;
 }
 #video_zoom {
+  z-index: 10;
+}
+
+.test {
+  position: absolute;
+  width: 20vw;
+  height: 20vh;
+  background-color: red;
+  top: 20vh;
+  left: 20vw;
   z-index: 1;
 }
