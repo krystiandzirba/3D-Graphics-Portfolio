@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 
-import "../components/LandingPage/Styles/VideoContainersStack.css";
+import "./components/Styles/VideoContainersStack.css";
 
 import "./App.css";
 

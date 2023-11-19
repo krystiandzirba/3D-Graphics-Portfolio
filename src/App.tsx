@@ -1,4 +1,4 @@
-import VideoContainersStack from "../components/LandingPage/Script/VideoContainersStack.tsx";
+import VideoContainersStack from "./components/script/VideoContainersStack.tsx";
 
 function App() {
   return (

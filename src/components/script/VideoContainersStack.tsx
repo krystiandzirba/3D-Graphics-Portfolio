@@ -3,6 +3,9 @@ import video_forward from "../../../src/assets/video_forward.mp4";
 import video_reverse from "../../../src/assets/video_reverse.mp4";
 import video_zoom from "../../../src/assets/video_zoom.mp4";
 
+import { playVideo } from "./playVideo";
+import { pauseVideo } from "./pauseVideo";
+
 export default function VideoContainersStack() {
   const video_forward_ref = useRef<HTMLVideoElement>(null);
   const video_reverse_ref = useRef<HTMLVideoElement>(null);
@@ -15,6 +18,7 @@ export default function VideoContainersStack() {
   const [button_text, set_button_text] = useState("Portfolio");
   const [remove_loading_page_content, set_remove_loading_page_content] = useState(false);
   const [video_index, set_video_index] = useState({ forward: 30, reverse: 20, zoom: 10 });
+  const [load_portfolio_content, set_load_portfolio_content] = useState(false);
 
   useEffect(() => {
     const portfolio_button_cover_timeout = setTimeout(() => {
@@ -24,20 +28,7 @@ export default function VideoContainersStack() {
     return () => clearTimeout(portfolio_button_cover_timeout);
   }, []);
 
-  const playVideo = (videoRef: React.RefObject<HTMLVideoElement>) => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  };
-
-  const pauseVideo = (videoRef: React.RefObject<HTMLVideoElement>) => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
-
-  function onClickAnimation(video: React.RefObject<HTMLVideoElement>) {
+  const onClickAnimation = (video: React.RefObject<HTMLVideoElement>) => {
     const checkAnimation = () => {
       if (video.current && video_forward_time && !animation_state) {
         const currentTime = video.current.currentTime;
@@ -45,10 +36,13 @@ export default function VideoContainersStack() {
           set_animation_state(true);
           playVideo(video_zoom_ref);
           set_video_index({ forward: 10, reverse: 10, zoom: 30 });
-          // PageFadeOutWhite();
           setTimeout(() => {
             set_remove_loading_page_content(true);
           }, 2300);
+          setTimeout(() => {
+            set_load_portfolio_content(true);
+            console.log("create");
+          }, 2500);
         } else {
           requestAnimationFrame(checkAnimation);
         }
@@ -56,11 +50,12 @@ export default function VideoContainersStack() {
     };
 
     checkAnimation();
-  }
+  };
 
   return (
     <>
-      <div className="page_fade"></div>
+      {!load_portfolio_content && <div className="page_fade_black"></div>}
+      <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
         <button
@@ -109,17 +104,8 @@ export default function VideoContainersStack() {
         </div>
       )}
 
-      <div className="test"></div>
+      {load_portfolio_content && <div className="portfolio_background"></div>}
+      {load_portfolio_content && <div className="test"></div>}
     </>
   );
-}
-
-function PageFadeOutWhite() {
-  // console.log("1");
-  setTimeout(function () {
-    const page_fade_out = document.querySelector(".page_fade");
-    if (page_fade_out !== null) {
-      page_fade_out.classList.add("page_fade_out_white");
-    }
-  }, 1700);
 }
