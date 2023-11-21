@@ -1,8 +1,8 @@
 {
-  "homepage": "https://krystiandzirba.github.io/3D-Portfolio-React",
+  "homepage": "https://krystiandzirba.github.io/3D-Graphics-Portfolio",
   "name": "3d-portfolio",
   "private": true,
-  "version": "0.12.0",
+  "version": "0.13.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",

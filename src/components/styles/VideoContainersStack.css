@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Righteous&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 
 .loading_div {
   width: 100%;
@@ -12,8 +12,22 @@
   color: rgb(77, 77, 77);
   background-color: rgba(0, 0, 0, 1);
   font-size: 2vw;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 800;
+}
+
+.app_version {
+  width: 4%;
+  height: 2%;
+  position: absolute;
+  z-index: 50;
+  top: 97.5vh;
+  left: 1vw;
+  color: rgb(77, 77, 77);
+  background-color: rgba(92, 22, 22, 0);
+  font-size: 0.85vw;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
 
 /* ↓ Page fade ↓ */
@@ -96,11 +110,12 @@
   position: absolute;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
+  transition: transform 0.5s ease-in-out;
 }
 
 .portfolio_button:hover {
   transform: translate(-50%, -5%) scale(1.1);
-  transition: transform 0.3s ease-in-out; /* Add the transition property here */
+  transition: transform 0.5s ease-in-out;
 }
 
 .button_fade_out {

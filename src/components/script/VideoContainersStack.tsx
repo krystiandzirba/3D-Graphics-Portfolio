@@ -97,7 +97,10 @@ export default function VideoContainersStack() {
   };
 
   return !page_loaded ? (
-    <div className="loading_div">loading...</div>
+    <>
+      <div className="loading_div">loading...</div>
+      <div className="app_version"></div>
+    </>
   ) : (
     <>
       {!load_portfolio_content && <div className="page_fade_black"></div>}
@@ -152,6 +155,8 @@ export default function VideoContainersStack() {
           </video>
         </div>
       )}
+
+      <div className="app_version">v0.13.0</div>
 
       {load_portfolio_content && <div className="portfolio_background"></div>}
       {load_portfolio_content && <div className="test"></div>}
