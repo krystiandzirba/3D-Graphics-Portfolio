@@ -19,6 +19,19 @@ export default function VideoContainersStack() {
   const [remove_loading_page_content, set_remove_loading_page_content] = useState(false);
   const [video_index, set_video_index] = useState({ forward: 30, reverse: 20, zoom: 10 });
   const [load_portfolio_content, set_load_portfolio_content] = useState(false);
+  const [page_loaded, set_page_loaded] = useState(false);
+
+  useEffect(() => {
+    const handlePageLoad = () => {
+      set_page_loaded(true);
+    };
+
+    window.addEventListener("load", handlePageLoad);
+
+    return () => {
+      window.removeEventListener("load", handlePageLoad);
+    };
+  }, []);
 
   useEffect(() => {
     const portfolio_button_cover_timeout = setTimeout(() => {
@@ -51,7 +64,9 @@ export default function VideoContainersStack() {
     checkAnimation();
   };
 
-  return (
+  return !page_loaded ? (
+    <div className="loading_div">loading...</div>
+  ) : (
     <>
       {!load_portfolio_content && <div className="page_fade_black"></div>}
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
