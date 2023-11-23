@@ -24,6 +24,7 @@ export default function VideoContainersStack() {
   const [page_loaded, set_page_loaded] = useState(false);
   const [video_forward_time, set_video_forward_time] = useState(0);
   const [video_reverse_time, set_video_reverse_time] = useState(0);
+  const [video_reverse_loaded, set_video_reverse_loaded] = useState(false);
 
   useEffect(() => {
     const handlePageLoad = () => {
@@ -44,6 +45,15 @@ export default function VideoContainersStack() {
 
     return () => clearTimeout(portfolio_button_cover_timeout);
   }, []);
+
+  useEffect(() => {
+    if (video_reverse_ref.current) {
+      const readyState = video_reverse_ref.current.readyState;
+      if (readyState === 4) {
+        set_video_reverse_loaded(true);
+      }
+    }
+  }, [video_reverse_ref.current]);
 
   const onClickAnimation = (video: React.RefObject<HTMLVideoElement>) => {
     const checkAnimation = () => {
@@ -98,14 +108,10 @@ export default function VideoContainersStack() {
     }
   };
 
-  return !page_loaded ? (
+  return (
     <>
-      <div className="loading_div">loading...</div>
-      <div className="app_version"></div>
-    </>
-  ) : (
-    <>
-      {!load_portfolio_content && <div className="page_fade_black"></div>}
+      <div className="app_version">v0.16.0</div>
+      {video_reverse_loaded && <div className="page_fade_black"></div>}
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
@@ -160,8 +166,6 @@ export default function VideoContainersStack() {
           </video>
         </div>
       )}
-
-      <div className="app_version">v0.15.0</div>
 
       {load_portfolio_content && (
         <div className="portfolio_background">
