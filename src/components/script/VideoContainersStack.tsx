@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import video_forward from "../../../src/assets/video_forward.mp4";
 import video_reverse from "../../../src/assets/video_reverse.mp4";
 import video_zoom from "../../../src/assets/video_zoom.mp4";
+import background_animation from "../../../src/assets/background_animation.mp4";
 
 import { playVideoZoom } from "./playVideoZoom";
 import { playVideoMirror } from "./playVideoMirror";
@@ -160,9 +161,15 @@ export default function VideoContainersStack() {
         </div>
       )}
 
-      <div className="app_version">v0.14.0</div>
+      <div className="app_version">v0.15.0</div>
 
-      {load_portfolio_content && <div className="portfolio_background"></div>}
+      {load_portfolio_content && (
+        <div className="portfolio_background">
+          <video autoPlay muted loop preload="auto" id="background_animation">
+            <source src={background_animation} type="video/mp4" />
+          </video>
+        </div>
+      )}
       {load_portfolio_content && <div className="test"></div>}
     </>
   );
