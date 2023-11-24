@@ -7,6 +7,8 @@ import background_animation from "../../../src/assets/background_animation.mp4";
 import { playVideoZoom } from "./playVideoZoom";
 import { playVideoMirror } from "./playVideoMirror";
 
+import { YoutubePlayer } from "./YoutubePlayer";
+
 export default function VideoContainersStack() {
   const video_forward_ref = useRef<HTMLVideoElement>(null);
   const video_reverse_ref = useRef<HTMLVideoElement>(null);
@@ -110,8 +112,8 @@ export default function VideoContainersStack() {
 
   return (
     <>
-      <div className="app_version">v0.16.0</div>
       {video_reverse_loaded && <div className="page_fade_black"></div>}
+      <div className="app_version">v0.17.0</div>
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
@@ -168,13 +170,23 @@ export default function VideoContainersStack() {
       )}
 
       {load_portfolio_content && (
-        <div className="portfolio_background">
-          <video autoPlay muted loop preload="auto" id="background_animation">
-            <source src={background_animation} type="video/mp4" />
-          </video>
+        <div className="portfolio_container">
+          <div className="portfolio_background_animation">
+            <video autoPlay muted loop preload="auto" id="background_animation">
+              <source src={background_animation} type="video/mp4" />
+            </video>
+            <div className="background_animation_gradient"></div>
+          </div>
+          <div className="section_line"></div>
+          <span className="section_title">3D animations</span>
+          <span className="animation_title animation_a">Memory Foam I</span>
+          <div className="youtube_player_container">
+            <YoutubePlayer embedId="RPdqY2Rh3vI" />
+          </div>
+          <span className="animation_title animation_b">Memory Foam II</span>
+          <span className="empty_animation_container">Coming in 2025</span>
         </div>
       )}
-      {load_portfolio_content && <div className="test"></div>}
     </>
   );
 }

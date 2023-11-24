@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 
+html,
+body {
+  background-color: rgb(0, 0, 0);
+  margin: none;
+  padding: none;
+}
+
 .loading_div {
   width: 100%;
   height: 100%;
@@ -19,7 +26,7 @@
 .app_version {
   width: 4%;
   height: 2%;
-  position: absolute;
+  position: fixed;
   z-index: 50;
   top: 97.5vh;
   left: 1vw;
@@ -165,7 +172,12 @@ video {
 
 /* ↓ Portfolio page ↓ */
 
-.portfolio_background {
+.portfolio_container {
+  height: 375vh;
+  z-index: 20;
+}
+
+.portfolio_background_animation {
   width: 100%;
   height: 100%;
   background-color: rgb(54, 54, 54);
@@ -173,26 +185,109 @@ video {
   position: absolute;
 }
 
-.test {
+.background_animation_gradient {
+  height: 10vh;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, black);
   position: absolute;
-  width: 2vw;
-  height: 2vh;
-  background-color: red;
-  top: 20vh;
-  left: 49vw;
-  z-index: 1;
-  animation: growAnimation 3s ease-in-out forwards;
+  z-index: 50;
+  top: 90vh;
+  left: 0;
 }
 
-@keyframes growAnimation {
-  from {
-    width: 2dvh;
-    left: 49vw;
-    height: 2vh;
-  }
-  to {
-    width: 80vw;
-    left: 10vw;
-    height: 40vh;
-  }
+.section_line,
+.section_title,
+.animation_title {
+  color: #d2d2d2;
+  position: absolute;
+  font-family: "Quicksand", sans-serif;
+}
+
+.section_line {
+  top: 117vh;
+  font-size: 5vw;
+  left: 5%;
+  background-color: #d2d2d2;
+  min-width: 90%;
+  min-height: 0.25%;
+  border-radius: 1vh;
+}
+
+.section_title {
+  top: 110vh;
+  font-size: 5vw;
+  left: 30%;
+  background-color: #000;
+  width: 40%;
+  text-align: center;
+}
+
+.animation_title {
+  top: 135vh;
+  left: 40%;
+  font-size: 3vw;
+}
+
+.animation_a {
+  top: 135vh;
+}
+
+.animation_b {
+  top: 257.5vh;
+}
+
+.youtube_player_container,
+.empty_animation_container {
+  position: absolute;
+  width: 80vw;
+  background-color: #000;
+  z-index: 100;
+  border: 1px solid #505050;
+}
+
+.youtube_player_container {
+  height: 93vh;
+  top: 147.5vh;
+  left: 10vw;
+}
+
+.empty_animation_container {
+  height: 85vh;
+  top: 270vh;
+  left: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vw;
+}
+
+/* ↓ Youtube player ↓ */
+
+.video-responsive {
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.video-responsive iframe {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+/* ↓ black scroll barr ↓ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(67, 67, 67);
+}
+
+* {
+  scrollbar-color: rgb(67, 67, 67);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(67, 67, 67);
 }
