@@ -51,7 +51,7 @@ body {
 
 .page_fade_black {
   background-color: black;
-  animation: page_fade_in_black 2s ease-in-out forwards;
+  animation: page_fade_in_black 1.5s ease-in-out forwards;
 }
 
 .white_fade_dummy,

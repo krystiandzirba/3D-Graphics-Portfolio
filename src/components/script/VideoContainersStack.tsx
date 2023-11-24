@@ -23,27 +23,14 @@ export default function VideoContainersStack() {
   const [video_index, set_video_index] = useState({ forward: 30, reverse: 20, zoom: 10 });
   const [video_opacity, set_video_opacity] = useState({ forward: 1, reverse: 1 });
   const [load_portfolio_content, set_load_portfolio_content] = useState(false);
-  const [page_loaded, set_page_loaded] = useState(false);
   const [video_forward_time, set_video_forward_time] = useState(0);
   const [video_reverse_time, set_video_reverse_time] = useState(0);
   const [video_reverse_loaded, set_video_reverse_loaded] = useState(false);
 
   useEffect(() => {
-    const handlePageLoad = () => {
-      set_page_loaded(true);
-    };
-
-    window.addEventListener("load", handlePageLoad);
-
-    return () => {
-      window.removeEventListener("load", handlePageLoad);
-    };
-  }, []);
-
-  useEffect(() => {
     const portfolio_button_cover_timeout = setTimeout(() => {
       set_portfolio_button_cover_state(false);
-    }, 1500);
+    }, 1300);
 
     return () => clearTimeout(portfolio_button_cover_timeout);
   }, []);
@@ -112,8 +99,8 @@ export default function VideoContainersStack() {
 
   return (
     <>
-      {video_reverse_loaded && <div className="page_fade_black"></div>}
-      <div className="app_version">v0.17.0</div>
+      {!video_reverse_loaded && <div className="page_fade_black"></div>}
+      <div className="app_version">v0.18.0</div>
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
