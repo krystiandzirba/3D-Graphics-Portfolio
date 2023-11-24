@@ -99,8 +99,8 @@ export default function VideoContainersStack() {
 
   return (
     <>
-      {!video_reverse_loaded && <div className="page_fade_black"></div>}
-      <div className="app_version">v0.18.0</div>
+      {<div className={video_reverse_loaded ? "page_fade_black" : "loading_div"}>Loading...</div>}
+      <div className="app_version">v0.19.0</div>
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
