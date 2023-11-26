@@ -2,7 +2,7 @@
   "homepage": "https://krystiandzirba.github.io/3D-Graphics-Portfolio",
   "name": "3d-portfolio",
   "private": true,
-  "version": "0.19.0",
+  "version": "0.20.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",

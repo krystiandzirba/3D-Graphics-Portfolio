@@ -24,12 +24,12 @@ body {
 }
 
 .app_version {
-  width: 4%;
+  width: 10%;
   height: 2%;
   position: fixed;
   z-index: 50;
   top: 97.5vh;
-  left: 1vw;
+  left: 0.5vw;
   color: rgb(77, 77, 77);
   background-color: rgba(92, 22, 22, 0);
   font-size: 0.85vw;
