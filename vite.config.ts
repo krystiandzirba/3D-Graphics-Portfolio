@@ -5,4 +5,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/3D-Graphics-Portfolio/",
+  resolve: {
+    alias: {
+      "@/assets": "/src/assets",
+    },
+  },
 });

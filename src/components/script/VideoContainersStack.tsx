@@ -1,8 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
-import video_forward from "../../../src/assets/video/video_forward.mp4";
-import video_reverse from "../../../src/assets/video/video_reverse.mp4";
-import video_zoom from "../../../src/assets/video/video_zoom.mp4";
-import background_animation from "../../../src/assets/video/background_animation.mp4";
+import video_forward from "@/assets/video/video_forward.mp4";
+import video_reverse from "@/assets/video/video_reverse.mp4";
+import video_zoom from "@/assets/video/video_zoom.mp4";
+import background_animation from "@/assets/video/background_animation.mp4";
+
+import door_closing_1 from "@/assets/audio/door_closing_1.mp3";
+import door_closing_2 from "@/assets/audio/door_closing_2.mp3";
+import door_opening_1 from "@/assets/audio/door_opening_1.mp3";
+import door_opening_2 from "@/assets/audio/door_opening_2.mp3";
+import door_squeaking_1 from "@/assets/audio/door_squeaking_1.mp3";
+import door_squeaking_2 from "@/assets/audio/door_squeaking_2.mp3";
+import door_squeaking_3 from "@/assets/audio/door_squeaking_3.mp3";
+import door_squeaking_4 from "@/assets/audio/door_squeaking_4.mp3";
 
 import { playVideoZoom } from "./playVideoZoom";
 import { playVideoMirror } from "./playVideoMirror";
@@ -74,13 +83,13 @@ export default function VideoContainersStack() {
     console.log("video_reverse_time changed:", video_reverse_time);
 
     if (video_reverse_time > 0.4 && video_reverse_time < 0.7) {
-      playAudio("../../../src/assets/audio/door_squeaking_2.mp3");
+      playAudio(door_squeaking_2);
     }
 
     if (video_reverse_time > 1.4 && video_reverse_time < 1.8) {
-      playAudio("../../../src/assets/audio/door_closing_1.mp3");
+      playAudio(door_closing_1);
       setTimeout(() => {
-        playAudio("../../../src/assets/audio/door_closing_2.mp3");
+        playAudio(door_closing_2);
       }, 150);
     }
   }, [video_reverse_time, video_reverse_ref.current]);
@@ -89,20 +98,20 @@ export default function VideoContainersStack() {
     if (!video_forward_ref.current) return;
     // console.log("video_forward_time changed:", video_forward_time);
     if (video_forward_time > 0.01 && video_forward_time < 0.3) {
-      playAudio("../../../src/assets/audio/door_opening_1.mp3");
-      playAudio("../../../src/assets/audio/door_opening_2.mp3");
+      playAudio(door_opening_1);
+      playAudio(door_opening_2);
 
       setTimeout(() => {
-        playAudio("../../../src/assets/audio/door_creaking_1.mp3");
+        playAudio(door_squeaking_3);
       }, 100);
 
       setTimeout(() => {
-        playAudio("../../../src/assets/audio/door_squeaking_1.mp3");
+        playAudio(door_squeaking_1);
       }, 350);
     }
 
     if (video_forward_time > 0.6 && video_forward_time < 0.7) {
-      playAudio("../../../src/assets/audio/door_creaking_2.mp3");
+      playAudio(door_squeaking_4);
     }
   }, [video_forward_time, video_forward_ref.current]);
 
@@ -129,7 +138,7 @@ export default function VideoContainersStack() {
   return (
     <>
       {<div className={video_reverse_loaded ? "page_fade_black" : "loading_div"}>Loading...</div>}
-      <div className="app_version">v0.20.0 work in progress</div>
+      <div className="app_version">v0.21.0 work in progress</div>
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
