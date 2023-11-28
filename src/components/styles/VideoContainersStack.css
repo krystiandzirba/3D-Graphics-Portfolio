@@ -264,8 +264,10 @@ video {
   position: absolute;
   width: 80vw;
   background-color: #000;
+  color: rgb(77, 77, 77);
   z-index: 100;
   border: 1px solid #505050;
+  font-family: "Quicksand", sans-serif;
 }
 
 .youtube_player_container {
@@ -322,9 +324,20 @@ video {
   z-index: 50;
   top: 97.5vh;
   left: 0.5vw;
-  color: rgb(77, 77, 77);
+  color: #bbbbbb;
   background-color: rgba(92, 22, 22, 0);
   font-size: 0.85vw;
   font-family: "Quicksand", sans-serif;
   font-weight: 300;
+}
+
+.audio_enable {
+  position: absolute;
+  width: 5vw;
+  height: 5vh;
+  top: 92.5%;
+  left: 3%;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }

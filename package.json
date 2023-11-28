@@ -2,7 +2,7 @@
   "homepage": "https://krystiandzirba.github.io/3D-Graphics-Portfolio",
   "name": "3d-portfolio",
   "private": true,
-  "version": "0.22.0",
+  "version": "0.23.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
@@ -14,6 +14,11 @@
     "vite": "vite"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-youtube": "^10.1.0"

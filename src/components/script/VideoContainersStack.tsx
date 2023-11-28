@@ -1,4 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
+
 import video_forward from "@/assets/video/video_forward.mp4";
 import video_reverse from "@/assets/video/video_reverse.mp4";
 import video_zoom from "@/assets/video/video_zoom.mp4";
@@ -38,6 +41,7 @@ export default function VideoContainersStack() {
   const [video_reverse_time, set_video_reverse_time] = useState<number>(0);
   const [video_reverse_loaded, set_video_reverse_loaded] = useState<boolean>(false);
   const [continue_button_state, set_continue_button_state] = useState<boolean>(false);
+  const [audio_enabled, set_audio_enabled] = useState<boolean>(true);
 
   useEffect(() => {
     const handleLoadedData = () => {
@@ -83,36 +87,40 @@ export default function VideoContainersStack() {
     if (!video_reverse_ref.current) return;
     console.log("video_reverse_time changed:", video_reverse_time);
 
-    if (video_reverse_time > 0.4 && video_reverse_time < 0.7) {
-      playAudio(door_squeaking_2);
-    }
+    if (audio_enabled) {
+      if (video_reverse_time > 0.4 && video_reverse_time < 0.7) {
+        playAudio(door_squeaking_2);
+      }
 
-    if (video_reverse_time > 1.4 && video_reverse_time < 1.8) {
-      playAudio(door_closing_1);
-      setTimeout(() => {
-        playAudio(door_closing_2);
-      }, 150);
+      if (video_reverse_time > 1.4 && video_reverse_time < 1.8) {
+        playAudio(door_closing_1);
+        setTimeout(() => {
+          playAudio(door_closing_2);
+        }, 150);
+      }
     }
   }, [video_reverse_time, video_reverse_ref.current]);
 
   useEffect(() => {
     if (!video_forward_ref.current) return;
     // console.log("video_forward_time changed:", video_forward_time);
-    if (video_forward_time > 0.01 && video_forward_time < 0.3) {
-      playAudio(door_opening_1);
-      playAudio(door_opening_2);
+    if (audio_enabled) {
+      if (video_forward_time > 0.01 && video_forward_time < 0.3) {
+        playAudio(door_opening_1);
+        playAudio(door_opening_2);
 
-      setTimeout(() => {
-        playAudio(door_squeaking_3);
-      }, 100);
+        setTimeout(() => {
+          playAudio(door_squeaking_3);
+        }, 100);
 
-      setTimeout(() => {
-        playAudio(door_squeaking_1);
-      }, 350);
-    }
+        setTimeout(() => {
+          playAudio(door_squeaking_1);
+        }, 350);
+      }
 
-    if (video_forward_time > 0.6 && video_forward_time < 0.7) {
-      playAudio(door_squeaking_4);
+      if (video_forward_time > 0.6 && video_forward_time < 0.7) {
+        playAudio(door_squeaking_4);
+      }
     }
   }, [video_forward_time, video_forward_ref.current]);
 
@@ -158,7 +166,18 @@ export default function VideoContainersStack() {
       }
       {!video_reverse_loaded && <div className="loading_text">Loading...</div>}
 
-      <div className="app_version">v0.22.0 work in progress</div>
+      <div className="app_version">v0.23.0 work in progress</div>
+      <button className="audio_enable">
+        <FontAwesomeIcon
+          icon={audio_enabled ? faVolumeHigh : faVolumeMute}
+          className="fa-xl"
+          style={{ color: "#bbbbbb" }}
+          onClick={() => {
+            set_audio_enabled(!audio_enabled);
+            console.log(audio_enabled);
+          }}
+        />
+      </button>
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
