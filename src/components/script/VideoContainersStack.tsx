@@ -45,7 +45,7 @@ export default function VideoContainersStack() {
 
   useEffect(() => {
     const handleLoadedData = () => {
-      console.log("Video loaded");
+      // console.log("Video loaded");
       set_video_reverse_loaded(true);
     };
 
@@ -85,7 +85,7 @@ export default function VideoContainersStack() {
 
   useEffect(() => {
     if (!video_reverse_ref.current) return;
-    console.log("video_reverse_time changed:", video_reverse_time);
+    // console.log("video_reverse_time changed:", video_reverse_time);
 
     if (audio_enabled) {
       if (video_reverse_time > 0.4 && video_reverse_time < 0.7) {
@@ -146,7 +146,7 @@ export default function VideoContainersStack() {
 
   return (
     <>
-      {
+      {!remove_loading_page_content && (
         <div className={continue_button_state ? "page_fade_black" : "page_black"}>
           {video_reverse_loaded && (
             <button
@@ -156,28 +156,29 @@ export default function VideoContainersStack() {
 
                 setTimeout(() => {
                   set_portfolio_button_cover_state(false);
-                }, 2000);
+                }, 1250);
               }}
             >
               click to continue
             </button>
           )}
         </div>
-      }
+      )}
       {!video_reverse_loaded && <div className="loading_text">Loading...</div>}
 
-      <div className="app_version">v0.23.0 work in progress</div>
-      <button className="audio_enable">
-        <FontAwesomeIcon
-          icon={audio_enabled ? faVolumeHigh : faVolumeMute}
-          className="fa-xl"
-          style={{ color: "#bbbbbb" }}
-          onClick={() => {
-            set_audio_enabled(!audio_enabled);
-            console.log(audio_enabled);
-          }}
-        />
-      </button>
+      <div className="app_version">v0.24.0 work in progress</div>
+      {!remove_loading_page_content && (
+        <button className="audio_enable">
+          <FontAwesomeIcon
+            icon={audio_enabled ? faVolumeHigh : faVolumeMute}
+            className="fa-xl"
+            style={{ color: "#bbbbbb" }}
+            onClick={() => {
+              set_audio_enabled(!audio_enabled);
+            }}
+          />
+        </button>
+      )}
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
