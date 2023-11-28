@@ -25,35 +25,36 @@ export default function VideoContainersStack() {
   const video_reverse_ref = useRef<HTMLVideoElement>(null);
   const video_zoom_ref = useRef<HTMLVideoElement>(null);
 
-  const [portfolio_button_cover_state, set_portfolio_button_cover_state] = useState(true);
-  const [portfolio_button_state, set_portfolio_button_state] = useState(false);
-  const [animation_state, set_animation_state] = useState(false);
-  const [video_forward_state, set_video_forward_state] = useState(false);
-  const [button_text, set_button_text] = useState("Portfolio");
-  const [remove_loading_page_content, set_remove_loading_page_content] = useState(false);
+  const [portfolio_button_cover_state, set_portfolio_button_cover_state] = useState<boolean>(true);
+  const [portfolio_button_state, set_portfolio_button_state] = useState<boolean>(false);
+  const [animation_state, set_animation_state] = useState<boolean>(false);
+  const [video_forward_state, set_video_forward_state] = useState<boolean>(false);
+  const [button_text, set_button_text] = useState<string>("Portfolio");
+  const [remove_loading_page_content, set_remove_loading_page_content] = useState<boolean>(false);
   const [video_index, set_video_index] = useState({ forward: 30, reverse: 20, zoom: 10 });
   const [video_opacity, set_video_opacity] = useState({ forward: 1, reverse: 1 });
-  const [load_portfolio_content, set_load_portfolio_content] = useState(false);
-  const [video_forward_time, set_video_forward_time] = useState(0);
-  const [video_reverse_time, set_video_reverse_time] = useState(0);
-  const [video_reverse_loaded, set_video_reverse_loaded] = useState(false);
+  const [load_portfolio_content, set_load_portfolio_content] = useState<boolean>(false);
+  const [video_forward_time, set_video_forward_time] = useState<number>(0);
+  const [video_reverse_time, set_video_reverse_time] = useState<number>(0);
+  const [video_reverse_loaded, set_video_reverse_loaded] = useState<boolean>(false);
+  const [continue_button_state, set_continue_button_state] = useState<boolean>(false);
 
   useEffect(() => {
-    const portfolio_button_cover_timeout = setTimeout(() => {
-      set_portfolio_button_cover_state(false);
-    }, 1300);
+    const handleLoadedData = () => {
+      console.log("Video loaded");
+      set_video_reverse_loaded(true);
+    };
 
-    return () => clearTimeout(portfolio_button_cover_timeout);
-  }, []);
+    const videoElement = video_reverse_ref.current;
 
-  useEffect(() => {
-    if (video_reverse_ref.current) {
-      const readyState = video_reverse_ref.current.readyState;
-      if (readyState === 4) {
-        set_video_reverse_loaded(true);
-      }
+    if (videoElement) {
+      videoElement.addEventListener("loadeddata", handleLoadedData);
+
+      return () => {
+        videoElement.removeEventListener("loadeddata", handleLoadedData);
+      };
     }
-  }, [video_reverse_ref.current]);
+  }, []);
 
   const onClickAnimation = (video: React.RefObject<HTMLVideoElement>) => {
     const checkAnimation = () => {
@@ -137,8 +138,27 @@ export default function VideoContainersStack() {
 
   return (
     <>
-      {<div className={video_reverse_loaded ? "page_fade_black" : "loading_div"}>Loading...</div>}
-      <div className="app_version">v0.21.0 work in progress</div>
+      {
+        <div className={continue_button_state ? "page_fade_black" : "page_black"}>
+          {video_reverse_loaded && (
+            <button
+              className="continue_button"
+              onClick={() => {
+                set_continue_button_state(true);
+
+                setTimeout(() => {
+                  set_portfolio_button_cover_state(false);
+                }, 2000);
+              }}
+            >
+              click to continue
+            </button>
+          )}
+        </div>
+      }
+      {!video_reverse_loaded && <div className="loading_text">Loading...</div>}
+
+      <div className="app_version">v0.22.0 work in progress</div>
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
       {!remove_loading_page_content && (
