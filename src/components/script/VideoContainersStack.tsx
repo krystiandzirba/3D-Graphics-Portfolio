@@ -188,7 +188,7 @@ export default function VideoContainersStack() {
 
                 setTimeout(() => {
                   set_portfolio_button_cover_state(false);
-                }, 1250);
+                }, 1700);
               }}
             >
               click to continue
@@ -198,7 +198,7 @@ export default function VideoContainersStack() {
       )}
       {!video_reverse_loaded && <div className="loading_text">Loading...</div>}
 
-      <div className="app_version">v0.26.0 work in progress</div>
+      <div className="app_version">v0.27.0 work in progress</div>
       {!remove_loading_page_content && (
         <button className="audio_enable">
           <FontAwesomeIcon
@@ -213,7 +213,7 @@ export default function VideoContainersStack() {
       )}
       <div className={!animation_state ? "white_fade_dummy" : "page_fade_white"}></div>
       {portfolio_button_cover_state && <div className="portfolio_button_cover"></div>}
-      {!remove_loading_page_content && (
+      {!remove_loading_page_content && !portfolio_button_cover_state && (
         <button
           onClick={() => {
             set_portfolio_button_state(true);
