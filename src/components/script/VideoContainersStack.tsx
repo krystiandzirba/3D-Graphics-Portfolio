@@ -15,6 +15,14 @@ import door_squeaking_1 from "@/assets/audio/door_squeaking_1.mp3";
 import door_squeaking_2 from "@/assets/audio/door_squeaking_2.mp3";
 import door_squeaking_3 from "@/assets/audio/door_squeaking_3.mp3";
 import door_squeaking_4 from "@/assets/audio/door_squeaking_4.mp3";
+import door_squeaking_5 from "@/assets/audio/door_squeaking_5.mp3";
+import door_squeaking_6 from "@/assets/audio/door_squeaking_6.mp3";
+import particles_1 from "@/assets/audio/particles_1.mp3";
+import particles_2 from "@/assets/audio/particles_2.mp3";
+import particles_3 from "@/assets/audio/particles_3.mp3";
+import particles_4 from "@/assets/audio/particles_4.mp3";
+import transition_1 from "@/assets/audio/transition_1.mp3";
+import transition_2 from "@/assets/audio/transition_2.mp3";
 
 import thumbnail_timber_houses_mid from "@/assets/thumbnails/thumbnail_timber_houses_mid.jpg";
 import thumbnail_livingroom_kitchen_mid from "@/assets/thumbnails/thumbnail_livingroom_kitchen_mid.jpg";
@@ -80,6 +88,24 @@ export default function VideoContainersStack() {
           setTimeout(() => {
             set_load_portfolio_content(true);
           }, 2500);
+
+          if (audio_enabled) {
+            setTimeout(() => {
+              playAudio(transition_1);
+              playAudio(transition_2);
+            }, 1150);
+
+            playAudio(door_squeaking_5);
+
+            setTimeout(() => {
+              playAudio(door_squeaking_6);
+            }, 300);
+
+            playAudio(particles_1);
+            playAudio(particles_2);
+            playAudio(particles_3);
+            playAudio(particles_4);
+          }
         } else {
           requestAnimationFrame(checkAnimation);
         }
@@ -117,7 +143,7 @@ export default function VideoContainersStack() {
 
         setTimeout(() => {
           playAudio(door_squeaking_3);
-        }, 100);
+        }, 150);
 
         setTimeout(() => {
           playAudio(door_squeaking_1);
@@ -172,7 +198,7 @@ export default function VideoContainersStack() {
       )}
       {!video_reverse_loaded && <div className="loading_text">Loading...</div>}
 
-      <div className="app_version">v0.25.0 work in progress</div>
+      <div className="app_version">v0.26.0 work in progress</div>
       {!remove_loading_page_content && (
         <button className="audio_enable">
           <FontAwesomeIcon
