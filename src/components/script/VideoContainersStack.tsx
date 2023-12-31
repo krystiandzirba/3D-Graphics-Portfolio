@@ -24,14 +24,9 @@ import particles_4 from "@/assets/audio/particles_4.mp3";
 import transition_1 from "@/assets/audio/transition_1.mp3";
 import transition_2 from "@/assets/audio/transition_2.mp3";
 
-import thumbnail_timber_houses_mid from "@/assets/thumbnails/thumbnail_timber_houses_mid.jpg";
-import thumbnail_livingroom_kitchen_mid from "@/assets/thumbnails/thumbnail_livingroom_kitchen_mid.jpg";
-import thumbnail_leviathan_axe_mid from "@/assets/thumbnails/thumbnail_leviathan_axe_mid.jpg";
-import thumbnail_modern_kitchen_mid from "@/assets/thumbnails/thumbnail_modern_kitchen_mid.jpg";
-import thumbnail_landing_page_animation from "@/assets/thumbnails/thumbnail_landing_page_animation.jpg";
-
 import { playVideoZoom } from "./playVideoZoom";
 import { playVideoMirror } from "./playVideoMirror";
+import CarouselDisplay from "./Carousel.tsx";
 
 import { YoutubePlayer } from "./YoutubePlayer";
 
@@ -59,7 +54,6 @@ export default function VideoContainersStack() {
 
   useEffect(() => {
     const handleLoadedData = () => {
-      // console.log("Video loaded");
       set_video_reverse_loaded(true);
     };
 
@@ -198,7 +192,7 @@ export default function VideoContainersStack() {
       )}
       {!video_reverse_loaded && <div className="loading_text">Loading...</div>}
 
-      <div className="app_version">v0.27.0 work in progress</div>
+      <div className="app_version">v0.28.0 work in progress</div>
       {!remove_loading_page_content && (
         <button className="audio_enable">
           <FontAwesomeIcon
@@ -285,21 +279,7 @@ export default function VideoContainersStack() {
           <div className="section_line line_b"></div>
           <span className="section_title title_modeling">3D modeling</span>
           <span className="section_title title_environment">3D environment</span>
-          <div className="projects_container">
-            <div className="projects_row">
-              <div className="project" style={{ backgroundImage: `url(${thumbnail_timber_houses_mid})` }}></div>
-
-              <div className="project" style={{ backgroundImage: `url(${thumbnail_livingroom_kitchen_mid})` }}></div>
-            </div>
-            <div className="projects_row">
-              <div className="project" style={{ backgroundImage: `url(${thumbnail_leviathan_axe_mid})` }}></div>
-
-              <div className="project" style={{ backgroundImage: `url(${thumbnail_modern_kitchen_mid})` }}></div>
-            </div>
-            <div className="projects_row">
-              <div className="project" style={{ backgroundImage: `url(${thumbnail_landing_page_animation})` }}></div>
-            </div>
-          </div>
+          <CarouselDisplay />
         </div>
       )}
     </>

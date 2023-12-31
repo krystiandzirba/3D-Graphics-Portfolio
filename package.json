@@ -2,7 +2,7 @@
   "homepage": "https://krystiandzirba.github.io/3D-Graphics-Portfolio",
   "name": "3d-portfolio",
   "private": true,
-  "version": "0.27.0",
+  "version": "0.28.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
@@ -21,6 +21,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-youtube": "^10.1.0"
   },
   "devDependencies": {

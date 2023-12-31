@@ -310,30 +310,6 @@ video {
   position: absolute;
 }
 
-.projects_container {
-  width: 98vw;
-  height: 200vh;
-  z-index: 10;
-  position: absolute;
-  top: 400vh;
-  left: 1vw;
-}
-
-.projects_row {
-  height: 60vh;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.project {
-  height: 50vh;
-  width: 43%;
-  background-color: yellow;
-  background-size: cover;
-}
-
 /* ↓ black scroll bar + version + audio ↓ */
 
 ::-webkit-scrollbar {
