@@ -6,8 +6,6 @@ import timber_houses_a from "@/assets/images/timber_houses/timber_houses_a.jpg";
 import timber_houses_b from "@/assets/images/timber_houses/timber_houses_b.jpg";
 import timber_houses_c from "@/assets/images/timber_houses/timber_houses_c.jpg";
 import timber_houses_d from "@/assets/images/timber_houses/timber_houses_d.jpg";
-import timber_houses_e from "@/assets/images/timber_houses/timber_houses_e.jpg";
-import timber_houses_f from "@/assets/images/timber_houses/timber_houses_f.jpg";
 import timber_houses_g from "@/assets/images/timber_houses/timber_houses_g.jpg";
 import timber_houses_h from "@/assets/images/timber_houses/timber_houses_h.jpg";
 import timber_houses_i from "@/assets/images/timber_houses/timber_houses_i.jpg";
@@ -69,250 +67,201 @@ class CarouselDisplay extends Component {
   render() {
     return (
       <>
-        <Carousel className="timber_houses_carousel">
-          <div>
-            <img src={timber_houses_a} alt="Slide 1" />
-            <p className="legend">Timber houses</p>
+        <div className="carousel_container">
+          <div className="carousel">
+            <span className="carousel_title">Timber Houses</span>
+            <Carousel dynamicHeight={true} infiniteLoop={true} transitionTime={100}>
+              <div>
+                <img src={timber_houses_h} />
+              </div>
+              <div>
+                <img src={timber_houses_g} />
+              </div>
+              <div>
+                <img src={timber_houses_d} />
+              </div>
+              <div>
+                <img src={timber_houses_c} />
+              </div>
+              <div>
+                <img src={timber_houses_b} />
+              </div>
+              <div>
+                <img src={timber_houses_a} />
+              </div>
+              <div>
+                <img src={timber_houses_i} />
+              </div>
+              <div>
+                <img src={timber_houses_j} />
+              </div>
+            </Carousel>
           </div>
-          <div>
-            <img src={timber_houses_b} alt="Slide 2" />
-            <p className="legend">Timber houses</p>
+          <div className="carousel">
+            <span className="carousel_title">Modern Kitchen + Livingroom</span>
+            <Carousel dynamicHeight={true} infiniteLoop={true} transitionTime={100}>
+              <div>
+                <img src={kitchen_livingroom_a} />
+              </div>
+              <div>
+                <img src={kitchen_livingroom_b} />
+              </div>
+              <div>
+                <img src={kitchen_livingroom_c} />
+              </div>
+              <div>
+                <img src={kitchen_livingroom_d} />
+              </div>
+              <div>
+                <img src={kitchen_livingroom_e} />
+              </div>
+              <div>
+                <img src={kitchen_livingroom_f} />
+              </div>
+              <div>
+                <img src={kitchen_livingroom_g} />
+              </div>
+            </Carousel>
           </div>
-          <div>
-            <img src={timber_houses_c} alt="Slide 3" />
-            <p className="legend">Timber houses</p>
+          <div className="carousel">
+            <span className="carousel_title">Leviathan Axe</span>
+            <Carousel dynamicHeight={true} infiniteLoop={true} transitionTime={100}>
+              <div>
+                <img src={leviathan_axe_i} />
+              </div>
+              <div>
+                <img src={leviathan_axe_h} />
+              </div>
+              <div>
+                <img src={leviathan_axe_g} />
+              </div>
+              <div>
+                <img src={leviathan_axe_f} />
+              </div>
+              <div>
+                <img src={leviathan_axe_e} />
+              </div>
+              <div>
+                <img src={leviathan_axe_d} />
+              </div>
+              <div>
+                <img src={leviathan_axe_c} />
+              </div>
+              <div>
+                <img src={leviathan_axe_b} />
+              </div>
+              <div>
+                <img src={leviathan_axe_a} />
+              </div>
+              <div>
+                <img src={leviathan_axe_j} />
+              </div>
+              <div>
+                <img src={leviathan_axe_k} />
+              </div>
+            </Carousel>
           </div>
-          <div>
-            <img src={timber_houses_d} alt="Slide 4" />
-            <p className="legend">Timber houses</p>
+          <div className="carousel">
+            <span className="carousel_title">Modern Kitchen</span>
+            <Carousel dynamicHeight={true} infiniteLoop={true} transitionTime={100}>
+              <div>
+                <img src={modern_kitchen_k} />
+              </div>
+              <div>
+                <img src={modern_kitchen_j} />
+              </div>
+              <div>
+                <img src={modern_kitchen_i} />
+              </div>
+              <div>
+                <img src={modern_kitchen_h} />
+              </div>
+              <div>
+                <img src={modern_kitchen_g} />
+              </div>
+              <div>
+                <img src={modern_kitchen_f} />
+              </div>
+              <div>
+                <img src={modern_kitchen_e} />
+              </div>
+              <div>
+                <img src={modern_kitchen_d} />
+              </div>
+              <div>
+                <img src={modern_kitchen_c} />
+              </div>
+              <div>
+                <img src={modern_kitchen_b} />
+              </div>
+              <div>
+                <img src={modern_kitchen_a} />
+              </div>
+              <div>
+                <img src={modern_kitchen_l} />
+              </div>
+              <div>
+                <img src={modern_kitchen_m} />
+              </div>
+              <div>
+                <img src={modern_kitchen_n} />
+              </div>
+            </Carousel>
           </div>
-          <div>
-            <img src={timber_houses_e} alt="Slide 5" />
-            <p className="legend">Timber houses</p>
+          <div className="carousel">
+            <span className="carousel_title">Landing Page</span>
+            <Carousel dynamicHeight={true} infiniteLoop={true} transitionTime={100}>
+              <div>
+                <img src={landing_page_m} />
+              </div>
+              <div>
+                <img src={landing_page_l} />
+              </div>
+              <div>
+                <img src={landing_page_k} />
+              </div>
+              <div>
+                <img src={landing_page_j} />
+              </div>
+              <div>
+                <img src={landing_page_i} />
+              </div>
+              <div>
+                <img src={landing_page_h} />
+              </div>
+              <div>
+                <img src={landing_page_g} />
+              </div>
+              <div>
+                <img src={landing_page_f} />
+              </div>
+              <div>
+                <img src={landing_page_e} />
+              </div>
+              <div>
+                <img src={landing_page_d} />
+              </div>
+              <div>
+                <img src={landing_page_c} />
+              </div>
+              <div>
+                <img src={landing_page_b} />
+              </div>
+              <div>
+                <img src={landing_page_a} />
+              </div>
+              <div>
+                <img src={landing_page_n} />
+              </div>
+              <div>
+                <img src={landing_page_o} />
+              </div>
+              <div>
+                <img src={landing_page_p} />
+              </div>
+            </Carousel>
           </div>
-          <div>
-            <img src={timber_houses_f} alt="Slide 6" />
-            <p className="legend">Timber houses</p>
-          </div>
-          <div>
-            <img src={timber_houses_g} alt="Slide 7" />
-            <p className="legend">Timber houses</p>
-          </div>
-          <div>
-            <img src={timber_houses_h} alt="Slide 8" />
-            <p className="legend">Timber houses</p>
-          </div>
-          <div>
-            <img src={timber_houses_i} alt="Slide 9" />
-            <p className="legend">Timber houses</p>
-          </div>
-          <div>
-            <img src={timber_houses_j} alt="Slide 10" />
-            <p className="legend">Timber houses</p>
-          </div>
-        </Carousel>
-        <Carousel className="kitchen_livingroom_carousel">
-          <div>
-            <img src={kitchen_livingroom_a} alt="Slide 1" />
-            <p className="legend">Modern Kitchen + Livingroom</p>
-          </div>
-          <div>
-            <img src={kitchen_livingroom_b} alt="Slide 2" />
-            <p className="legend">Modern Kitchen + Livingroom</p>
-          </div>
-          <div>
-            <img src={kitchen_livingroom_c} alt="Slide 3" />
-            <p className="legend">Modern Kitchen + Livingroom</p>
-          </div>
-          <div>
-            <img src={kitchen_livingroom_d} alt="Slide 4" />
-            <p className="legend">Modern Kitchen + Livingroom</p>
-          </div>
-          <div>
-            <img src={kitchen_livingroom_e} alt="Slide 5" />
-            <p className="legend">Modern Kitchen + Livingroom</p>
-          </div>
-          <div>
-            <img src={kitchen_livingroom_f} alt="Slide 6" />
-            <p className="legend">Modern Kitchen + Livingroom</p>
-          </div>
-          <div>
-            <img src={kitchen_livingroom_g} alt="Slide 7" />
-            <p className="legend">Modern Kitchen + Livingroom</p>
-          </div>
-        </Carousel>
-        <Carousel className="leviathan_axe_carousel">
-          <div>
-            <img src={leviathan_axe_a} alt="Slide 1" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_b} alt="Slide 2" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_c} alt="Slide 3" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_d} alt="Slide 4" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_e} alt="Slide 5" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_f} alt="Slide 6" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_g} alt="Slide 7" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_h} alt="Slide 8" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_i} alt="Slide 9" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_j} alt="Slide 10" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-          <div>
-            <img src={leviathan_axe_k} alt="Slide 11" />
-            <p className="legend">Leviathan Axe</p>
-          </div>
-        </Carousel>
-
-        <Carousel className="modern_kitchen_carousel">
-          <div>
-            <img src={modern_kitchen_a} alt="Slide 1" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_b} alt="Slide 2" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_c} alt="Slide 3" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_d} alt="Slide 4" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_e} alt="Slide 5" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_f} alt="Slide 6" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_g} alt="Slide 7" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_h} alt="Slide 8" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_i} alt="Slide 9" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_j} alt="Slide 10" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_k} alt="Slide 11" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_l} alt="Slide 12" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_m} alt="Slide 13" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-          <div>
-            <img src={modern_kitchen_n} alt="Slide 14" />
-            <p className="legend">Modern Kitchen</p>
-          </div>
-        </Carousel>
-
-        <Carousel className="landing_page_carousel">
-          <div>
-            <img src={landing_page_a} alt="Slide 1" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_b} alt="Slide 2" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_c} alt="Slide 3" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_d} alt="Slide 4" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_e} alt="Slide 5" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_f} alt="Slide 6" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_g} alt="Slide 7" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_h} alt="Slide 8" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_i} alt="Slide 9" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_j} alt="Slide 10" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_k} alt="Slide 11" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_l} alt="Slide 12" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_m} alt="Slide 13" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_n} alt="Slide 14" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_o} alt="Slide 15" />
-            <p className="legend">Landing Page</p>
-          </div>
-          <div>
-            <img src={landing_page_p} alt="Slide 16" />
-            <p className="legend">Landing Page</p>
-          </div>
-        </Carousel>
+        </div>
       </>
     );
   }

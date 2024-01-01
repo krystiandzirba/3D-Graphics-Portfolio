@@ -1,34 +1,28 @@
-.timber_houses_carousel {
+.carousel_container {
+  top: 300vh;
   position: absolute;
-  top: 410vh;
-  width: 90vw;
-  left: 5vw;
+  height: 900vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }
 
-.kitchen_livingroom_carousel {
-  position: absolute;
-  top: 575vh;
+.carousel {
+  position: relative;
   width: 90vw;
-  left: 5vw;
+  height: 103.5vh;
+  left: 2.5vw;
+  margin-bottom: 35vh;
+  text-align: center;
 }
 
-.leviathan_axe_carousel {
-  position: absolute;
-  top: 700vh;
-  width: 90vw;
-  left: 5vw;
-}
-
-.modern_kitchen_carousel {
-  position: absolute;
-  top: 825vh;
-  width: 90vw;
-  left: 5vw;
-}
-
-.landing_page_carousel {
-  position: absolute;
-  top: 950vh;
-  width: 90vw;
-  left: 5vw;
+.carousel_title {
+  position: relative;
+  color: #bbbbbb;
+  background-color: rgba(92, 22, 22, 0);
+  font-size: 2vw;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  left: 3vw;
 }

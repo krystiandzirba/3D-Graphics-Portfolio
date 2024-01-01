@@ -192,7 +192,7 @@ export default function VideoContainersStack() {
       )}
       {!video_reverse_loaded && <div className="loading_text">Loading...</div>}
 
-      <div className="app_version">v0.28.0 work in progress</div>
+      <div className="app_version">v0.29.0 work in progress</div>
       {!remove_loading_page_content && (
         <button className="audio_enable">
           <FontAwesomeIcon
