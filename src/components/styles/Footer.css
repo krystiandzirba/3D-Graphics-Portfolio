@@ -1,0 +1,27 @@
+.footer_container {
+  position: absolute;
+  width: 100%;
+  height: 10vh;
+  background-color: rgb(53, 53, 53);
+  top: 1190vh;
+}
+
+.info_container {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 1vw;
+  top: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none !important;
+  color: #d4d4d4;
+  font-size: 1.75vh;
+  font-family: "Quicksand", sans-serif;
+}
+
+.info_container a {
+  text-decoration: none;
+  color: #ffffff;
+}

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 import timber_houses_a from "@/assets/images/timber_houses/timber_houses_a.jpg";

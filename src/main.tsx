@@ -4,6 +4,7 @@ import App from "./App.tsx";
 
 import "./components/Styles/VideoContainersStack.css";
 import "./components/Styles/Carousel.css";
+import "./components/Styles/Footer.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./App.css";
 

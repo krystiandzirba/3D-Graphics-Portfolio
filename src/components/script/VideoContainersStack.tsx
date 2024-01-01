@@ -27,6 +27,7 @@ import transition_2 from "@/assets/audio/transition_2.mp3";
 import { playVideoZoom } from "./playVideoZoom";
 import { playVideoMirror } from "./playVideoMirror";
 import CarouselDisplay from "./Carousel.tsx";
+import Footer from "./Footer.tsx";
 
 import { YoutubePlayer } from "./YoutubePlayer";
 
@@ -192,7 +193,7 @@ export default function VideoContainersStack() {
       )}
       {!video_reverse_loaded && <div className="loading_text">Loading...</div>}
 
-      <div className="app_version">v0.29.0 work in progress</div>
+      <div className="app_version">v0.30.0 work in progress</div>
       {!remove_loading_page_content && (
         <button className="audio_enable">
           <FontAwesomeIcon
@@ -262,6 +263,12 @@ export default function VideoContainersStack() {
 
       {load_portfolio_content && (
         <div className="portfolio_container">
+          <div className="description">
+            <span className="description_section">3D GRAPHICS</span>
+            <span className="description_section">3D ANIMATIONS</span>
+            <span className="description_section">3D ENVIRONMENTS</span>
+          </div>
+          <span className="description_arrow">▼</span>
           <div className="portfolio_background_animation">
             <video autoPlay muted loop preload="auto" id="background_animation">
               <source src={background_animation} type="video/mp4" />
@@ -280,6 +287,7 @@ export default function VideoContainersStack() {
           <span className="section_title title_modeling">3D modeling</span>
           <span className="section_title title_environment">3D environment</span>
           <CarouselDisplay />
+          <Footer />
         </div>
       )}
     </>
